@@ -1,12 +1,13 @@
 package web.dao;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import web.models.Car;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
+@Repository
 public class CarDAOImpl implements  CarDAO {
     private List<Car> cars = new ArrayList<>();
     {
@@ -19,7 +20,7 @@ public class CarDAOImpl implements  CarDAO {
 
     @Override
     public List<Car> getCar(int count) {
-        return cars.stream().limit(count).toList();
+        return cars;
     }
 
 }
