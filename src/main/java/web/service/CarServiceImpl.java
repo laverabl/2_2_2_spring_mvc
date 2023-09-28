@@ -1,7 +1,6 @@
 package web.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import web.dao.CarDAO;
 import web.models.Car;
@@ -23,6 +22,6 @@ public class CarServiceImpl implements CarService{
         } else if (count >= 5) {
             count = 5;
         }
-        return carDAO.getCar(count).subList(0, count);
+        return carDAO.getCar(count).stream().limit(count).toList();
     }
 }
